@@ -8,7 +8,7 @@ const privateKey = fs.readFileSync(path.resolve(__dirname, '../../private.key'))
 export class TelephonyService {
   private vonage = new Vonage({
     applicationId: config.vonage.applicationId,
-    privateKey: privateKey,
+    privateKey: config.vonage.privateKey,
   });
 
   async initiateCall(to: string, audioUrl: string): Promise<any> {
