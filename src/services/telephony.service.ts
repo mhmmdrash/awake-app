@@ -1,9 +1,9 @@
 import { config } from '../config';
 const { Vonage } = require('@vonage/server-sdk');
-import fs from 'fs';
-import path from 'path';
+// import fs from 'fs';
+// import path from 'path';
 
-const privateKey = fs.readFileSync(path.resolve(__dirname, '../../private.key'));
+// const privateKey = fs.readFileSync(path.resolve(__dirname, '../../private.key'));
 
 export class TelephonyService {
   private vonage = new Vonage({
