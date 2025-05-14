@@ -6,6 +6,7 @@ import { calculateAndAddReminderJob } from '../services/reminder.service';
 
 const connection = {
   url: config.redis.url,
+  family: 0,
   // host: config.redis.host,
   // port: config.redis.port,
   // password: config.redis.password, // add this line
