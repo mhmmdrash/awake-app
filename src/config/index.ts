@@ -33,7 +33,7 @@ export const config: Config = {
     phoneNumber: process.env.VONAGE_PHONE_NUMBER || ''
   },
   redis: {
-    host: process.env.REDIS_HOST || 'localhost',
+    host: process.env.REDIS_HOST!,
     port: parseInt(process.env.REDIS_PORT || '6379'),
     password: process.env.REDIS_PASSWORD || '',
     username: process.env.REDIS_USERNAME || '' // Uncomment if using Redis with username
