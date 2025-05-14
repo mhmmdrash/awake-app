@@ -8,6 +8,7 @@ interface Config {
     phoneNumber: string;
   };
   redis: {
+    url: string;
     host: string;
     port: number;
     password?: string;
@@ -33,6 +34,7 @@ export const config: Config = {
     phoneNumber: process.env.VONAGE_PHONE_NUMBER || ''
   },
   redis: {
+    url: process.env.REDIS_URL || '',
     host: process.env.REDIS_HOST!,
     port: parseInt(process.env.REDIS_PORT || '6379'),
     password: process.env.REDIS_PASSWORD || '',
