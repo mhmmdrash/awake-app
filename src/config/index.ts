@@ -1,5 +1,3 @@
-import { application } from "express";
-
 require('dotenv').config()
 
 interface Config {
@@ -13,6 +11,7 @@ interface Config {
     host: string;
     port: number;
     password?: string;
+    username?: string;
   };
   twilio: {
     accountSid: string;
@@ -36,7 +35,8 @@ export const config: Config = {
   redis: {
     host: process.env.REDIS_HOST || 'localhost',
     port: parseInt(process.env.REDIS_PORT || '6379'),
-    // password: process.env.REDIS_PASSWORD || ''
+    password: process.env.REDIS_PASSWORD || '',
+    username: process.env.REDIS_USERNAME || '' // Uncomment if using Redis with username
   },
   twilio: {
     accountSid: process.env.TWILIO_ACCOUNT_SID || '',

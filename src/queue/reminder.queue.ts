@@ -6,9 +6,12 @@ import { calculateAndAddReminderJob } from '../services/reminder.service';
 
 const connection = {
   host: config.redis.host,
-  port: config.redis.port
+  port: config.redis.port,
+  password: config.redis.password, // add this line
+  username: config.redis.username, // add this line
 };
 
+console.log('Connecting to Redis at', config.redis.host, config.redis.port);
 export const reminderQueue = new Queue<ReminderJobData>('reminders', { connection });
 
 // Utility function to fetch all jobs in the queue
