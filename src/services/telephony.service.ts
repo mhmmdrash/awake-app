@@ -13,34 +13,39 @@ export class TelephonyService {
 
   async initiateCall(to: string, audioUrl: string): Promise<any> {
     console.log('Initiating call to:', to);
-    const result = await this.vonage.voice.createOutboundCall({
-      to: [
-        {
+    try {
+      const result = await this.vonage.voice.createOutboundCall({
+        to: [
+          {
+            type: 'phone',
+            number: to,
+          },
+        ],
+        from: {
           type: 'phone',
-          number: to,
+          number: config.vonage.phoneNumber,
         },
-      ],
-      from: {
-        type: 'phone',
-        number: config.vonage.phoneNumber,
-      },
-      ncco: [
-        {
-          "action": "talk",
-          "language": "en-US",
-          "style": "7",
-          "premium": false,
-          "text": "Wake up, this is your daily reminder call, you message wil play in three.. two.. one..",
-        },
-        {
-          "action": "stream",
-          "streamUrl": [`${config.serverUrl}/audio/audio.mp3`],
-          "level": 1,
-          "bargeIn": false,
-        }
-      ],
-    })
-
-    return result; 
+        ncco: [
+          {
+            "action": "talk",
+            "language": "en-US",
+            "style": "7",
+            "premium": false,
+            "text": "Wake up, this is your daily reminder call, you message wil play in three.. two.. one..",
+          },
+          {
+            "action": "stream",
+            "streamUrl": [`${config.serverUrl}/audio/audio.mp3`],
+            "level": 1,
+            "bargeIn": false,
+          }
+        ],
+      })
+  
+      return result; 
+    } catch(error) {
+      console.error('Error initiating call:', error);
+      throw error;
+    }
   }
 }
