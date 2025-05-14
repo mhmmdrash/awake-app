@@ -23,7 +23,7 @@ app.use('/audio', (req, res, next) => {
   //   body: req.body,
   //   ip: req.headers['x-forwarded-for'] || req.socket.remoteAddress
   // });
-  res.setHeader('Content-Type', 'audio/wav'); 
+  res.setHeader('Content-Type', 'audio/mp3'); 
   next();
 }, express.static(path.join(__dirname, 'audio')));
 

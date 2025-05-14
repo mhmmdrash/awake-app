@@ -34,7 +34,7 @@ export class TelephonyService {
         },
         {
           "action": "stream",
-          "streamUrl": [`${config.serverUrl}/audio/audio2mp3.mp3`],
+          "streamUrl": [`${config.serverUrl}/audio/audio.mp3`],
           "level": 1,
           "bargeIn": false,
         }
